@@ -6,13 +6,13 @@ public class AccountContactclass {
         Account acct = new Account(Name='Axis Account');
         insert acct;
         // Once the account is inserted, the sObject will be 
-        // populated with an ID.
+        // populated with an IDs.
         // Get this ID.
         ID acctID = acct.ID;
         // Add a contact to this account.
         Contact mario = new Contact(
             FirstName='Ario',
-            LastName='Ruiz',
+            LastName='Ruizss',
             Phone='8975551212',
             AccountId=acctID);
         insert mario;
