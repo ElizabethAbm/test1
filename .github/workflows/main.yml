@@ -37,7 +37,13 @@ jobs:
         
       # Connecting to SF Org
       - name: Integrating Salesforce 
-        run : sfdx force:auth:jwt:grant --clientid 3MVG9pRzvMkjMb6k3VUR7HbvEBWvkesNPv8k2vASf7h4g8smS2qYVJEfubhuz0qo9GjLYcLEqV_rvPldJRpRH --jwtkeyfile ./buildfiles/server.key --username eabraham@gmail.com --instanceurl https://suyati43-dev-ed.my.salesforce.com
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
+          INSTANCE_URL: ${{ secrets.INSTANCE_URL }}
+              
+        run : sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./buildfiles/server.key --username $SALESFORCE_USERNAME --instanceurl $INSTANCE_URL
+    
     
     # Runs a set of commands using the runners shell
       - name: Run a single-line script
